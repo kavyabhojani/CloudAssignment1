@@ -1,0 +1,24 @@
+services:
+  app1:
+    build: ./app1
+    image: kavyabhojani/app1
+    ports:
+      - "6000:6000"
+    networks:
+      - compose-networks
+    volumes:
+      - ./:/app1/storage
+
+  app2:
+    build: ./app2
+    image: kavyabhojani/app2
+    ports:
+      - "7000:7000"
+    networks:
+      - compose-networks
+    volumes:
+      - ./:/app2/storage 
+
+networks:
+  compose-networks:
+   driver: bridge
